@@ -22,6 +22,7 @@
         <version-snakeyaml>2.3</version-snakeyaml>
         <version-fastjson2>2.0.53</version-fastjson2>
         <version-hutool>5.8.33</version-hutool>
+        <version-guava>33.3.1-jre</version-guava>
 
         <mybatis-plus-version>3.5.9</mybatis-plus-version>
         <druid-version>1.2.23</druid-version>
@@ -84,6 +85,11 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -135,6 +141,11 @@
                 <version>${version-hutool}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${version-guava}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

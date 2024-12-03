@@ -32,9 +32,7 @@ public class DailyLifeRecordsController {
      * 查询全部数据
      */
     @RequestMapping(value = "/list")
-    public String list() {
-        List<DailyLifeRecords> list = dailyLifeRecordsService.list();
-
+    public List<DailyLifeRecords> list() {
         // DailyLifeRecords dailyLifeRecords = DailyLifeRecords.builder()
         //         .id(1L)
         //         .content("今天是一个阳光明媚的日子，适合出去散步。")
@@ -42,7 +40,7 @@ public class DailyLifeRecordsController {
         //         .build();
         // list.add(dailyLifeRecords);
 
-        return JSON.toJSONString(list);
+        return dailyLifeRecordsService.list();
     }
 
     /**

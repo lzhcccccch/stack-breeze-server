@@ -8,6 +8,7 @@ public class DailyLifeRecordsServerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DailyLifeRecordsServerApplication.class, args);
+        System.out.println("================= DailyLifeRecordsServerApplication 启动成功 =====================");
     }
 
 }
