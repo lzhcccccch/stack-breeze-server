@@ -44,7 +44,7 @@ public class GlobalExceptionHandler {
                 .orElse(CharSequenceUtil.EMPTY);
 
         log.error("MethodArgumentNotValidException: [{}] {} [ex] {}", request.getMethod(), request.getRequestURI(), Throwables.getStackTraceAsString(ex));
-        return ResultHelper.fail(ErrorCode.CLIENT_ERROR, exceptionStr);
+        return ResultHelper.fail(ErrorCode.CLIENT_ERROR.getCode(), exceptionStr);
     }
 
     /**

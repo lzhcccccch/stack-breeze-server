@@ -43,8 +43,8 @@ public class ResultHelper {
         return fail(errorCode.getCode(), errorCode.getMessage(), System.currentTimeMillis());
     }
 
-    public static <T> Result<T> fail(ErrorCode errorCode, String message) {
-        return fail(errorCode.getCode(), message, System.currentTimeMillis());
+    public static <T> Result<T> fail(String message) {
+        return fail(ErrorCode.SERVICE_ERROR.getCode(), message, System.currentTimeMillis());
     }
 
     public static <T> Result<T> fail(String code, String message) {
