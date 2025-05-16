@@ -5,7 +5,7 @@ FROM openjdk:21-jdk-slim
 WORKDIR /app
 
 # 将项目的 jar 文件复制到容器中, 并重命名为 app.jar. PS: 修改代码后要记得重新打包
-COPY ./target/LifeRecordsServer.jar /app.jar
+COPY ./target/MyWebsite.jar /app.jar
 
 # 设置环境变量
 ENV MYSQL_HOST=localhost

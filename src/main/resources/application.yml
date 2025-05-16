@@ -3,8 +3,7 @@ server:
 
 spring:
   application:
-    name: daily-life-records-server
-  # DataSource Config
+    name: my-website
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
