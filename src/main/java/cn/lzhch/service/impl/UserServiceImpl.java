@@ -96,7 +96,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         // 使用Spring Security进行用户认证
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getUsernameOrEmail(), // 用户名或邮箱
+                        request.getUsername(), // 用户名或邮箱
                         request.getPassword() // 明文密码，由Spring Security验证
                 )
         );
@@ -105,7 +105,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         String jwt = tokenProvider.generateToken(authentication);
 
         // 查询用户完整信息（用于返回给前端）
-        User user = findByUsernameOrEmail(request.getUsernameOrEmail());
+        User user = findByUsernameOrEmail(request.getUsername());
         UserProfileResponse userProfile = UserProfileResponse.builder()
                 .id(user.getId())
                 .username(user.getUsername())
@@ -114,7 +114,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
                 .updateTime(user.getUpdateTime())
                 .build();
 
-        log.info("用户登录成功: {}", request.getUsernameOrEmail());
+        log.info("用户登录成功: {}", request.getUsername());
 
         // 构建登录响应
         return UserLoginResponse.builder()

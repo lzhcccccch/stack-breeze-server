@@ -73,7 +73,7 @@ class AuthControllerTest {
 
         // 然后登录
         UserLoginRequest loginRequest = UserLoginRequest.builder()
-                .usernameOrEmail("logintest")
+                .username("logintest")
                 .password("TestPassword123")
                 .build();
 

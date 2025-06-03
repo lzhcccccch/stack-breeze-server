@@ -1,6 +1,7 @@
 package cn.lzhch.security;
 
 import cn.lzhch.entity.User;
+import cn.lzhch.mapper.UserMapper;
 import cn.lzhch.service.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,14 +23,12 @@ import java.util.ArrayList;
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final IUserService userService;
+    private final UserMapper userMapper;
 
     @Override
     public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {
-        User user = userService.findByUsernameOrEmail(usernameOrEmail);
-        if (user == null) {
-            throw new UsernameNotFoundException("用户不存在: " + usernameOrEmail);
-        }
+        User user = this.userMapper.findByUsernameOrEmail(usernameOrEmail)
+                .orElseThrow(() -> new UsernameNotFoundException("用户不存在: " + usernameOrEmail));
 
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),

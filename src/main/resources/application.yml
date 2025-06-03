@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: my-website
+    name: stack-breeze-server
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource

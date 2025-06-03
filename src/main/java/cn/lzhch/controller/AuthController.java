@@ -33,7 +33,7 @@ public class AuthController {
      * @return 注册成功的用户资料（不包含密码）
      */
     @PostMapping("/register")
-    public UserProfileResponse register(@Valid @RequestBody UserRegisterRequest request) {
+    public UserProfileResponse register(/*@Valid*/ @RequestBody UserRegisterRequest request) {
         log.info("用户注册请求: {}", request.getUsername());
         return userService.register(request);
     }
@@ -47,7 +47,7 @@ public class AuthController {
      */
     @PostMapping("/login")
     public UserLoginResponse login(@Valid @RequestBody UserLoginRequest request) {
-        log.info("用户登录请求: {}", request.getUsernameOrEmail());
+        log.info("用户登录请求: {}", request.getUsername());
         return userService.login(request);
     }
 

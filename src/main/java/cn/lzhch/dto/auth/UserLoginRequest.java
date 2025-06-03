@@ -21,10 +21,10 @@ import lombok.NoArgsConstructor;
 public class UserLoginRequest {
 
     /**
-     * 用户名或邮箱
+     * 用户名
      */
-    @NotBlank(message = "用户名或邮箱不能为空")
-    private String usernameOrEmail;
+    @NotBlank(message = "用户名不能为空")
+    private String username;
 
     /**
      * 密码
