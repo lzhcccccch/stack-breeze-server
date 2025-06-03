@@ -35,6 +35,11 @@ public enum ErrorCode {
     USERNAME_PASSWORD_INCORRECT("A0012", "用户名或密码错误"),
     VERIFICATION_CODE_EXPIRED("A0013", "验证码已过期"),
     BAD_CREDENTIALS_EXPIRED("A0014", "用户认证异常"),
+    USERNAME_ALREADY_EXISTS("A0015", "用户名已存在"),
+    EMAIL_ALREADY_EXISTS("A0016", "邮箱已存在"),
+    INVALID_TOKEN("A0017", "无效的令牌"),
+    TOKEN_EXPIRED("A0018", "令牌已过期"),
+    UNAUTHORIZED("A0019", "未授权访问"),
 
     /**
      * 服务端错误

@@ -4,6 +4,6 @@
 <mapper namespace="cn.lzhch.mapper.DailyLifeRecordsMapper">
     <select id="selectByPage" resultType="cn.lzhch.entity.DailyLifeRecords">
         SELECT *
-        FROM daily_life_records ${ew.customSqlSegment}
+        FROM stack_breeze ${ew.customSqlSegment}
     </select>
 </mapper>

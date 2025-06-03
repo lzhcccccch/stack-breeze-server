@@ -10,6 +10,8 @@ import com.google.common.base.Throwables;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -45,6 +47,15 @@ public class GlobalExceptionHandler {
 
         log.error("MethodArgumentNotValidException: [{}] {} [ex] {}", request.getMethod(), request.getRequestURI(), Throwables.getStackTraceAsString(ex));
         return ResultHelper.fail(ErrorCode.CLIENT_ERROR.getCode(), exceptionStr);
+    }
+
+    /**
+     * 处理认证异常
+     */
+    @ExceptionHandler(value = {AuthenticationException.class, BadCredentialsException.class})
+    public Result<Void> handleAuthenticationException(HttpServletRequest request, AuthenticationException ex) {
+        log.error("AuthenticationException: [{}] {} [ex] {}", request.getMethod(), request.getRequestURI(), Throwables.getStackTraceAsString(ex));
+        return ResultHelper.fail(ErrorCode.USERNAME_PASSWORD_INCORRECT);
     }
 
     /**

@@ -7,6 +7,12 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/daily_life_records?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&allowMultiQueries=true
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/stack_breeze?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&allowMultiQueries=true
     username: ${MYSQL_USER:root}
     password: ${MYSQL_PASSWORD:your_default_password}
+
+# JWT 配置
+app:
+  jwt:
+    secret: ${JWT_SECRET:mySecretKey123456789012345678901234567890123456789012345678901234567890}
+    expiration: ${JWT_EXPIRATION:86400} # 24小时，单位：秒
