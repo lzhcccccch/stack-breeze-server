@@ -2,7 +2,6 @@ package cn.lzhch.security;
 
 import cn.lzhch.entity.User;
 import cn.lzhch.mapper.UserMapper;
-import cn.lzhch.service.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

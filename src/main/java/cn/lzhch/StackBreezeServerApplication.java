@@ -6,8 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 
-import javax.sound.midi.Soundbank;
-
 @SpringBootApplication
 public class StackBreezeServerApplication {
 
