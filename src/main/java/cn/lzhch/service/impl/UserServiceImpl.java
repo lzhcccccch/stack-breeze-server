@@ -26,28 +26,10 @@ import java.time.LocalDateTime;
 
 /**
  * 用户服务实现类
- *
- * 核心业务逻辑：
- * 1. 用户注册：参数校验 → 唯一性检查 → 密码加密 → 数据保存
- * 2. 用户登录：认证验证 → JWT生成 → 用户信息返回
- * 3. 用户查询：支持用户名、邮箱、组合查询
- * 4. 当前用户：从Security上下文获取当前登录用户
- *
- * 设计原则：
- * - 事务管理：注册操作使用事务，保证数据一致性
- * - 异常处理：使用自定义异常，提供明确的错误信息
- * - 安全考虑：密码加密存储，敏感信息不返回给前端
- * - 日志记录：关键操作记录日志，便于问题排查
- *
- * 技术特点：
- * - 继承ServiceImpl：获得MyBatis-Plus的基础CRUD功能
- * - 依赖注入：使用构造器注入，保证依赖的不可变性
- * - 密码安全：BCrypt加密，每次加密结果都不同
- * - JWT集成：与Spring Security无缝集成
- *
- * @author lzhch
- * @version v1.0
- * @date 2024/12/19
+ * <p>
+ * author: lzhch
+ * version: v1.0
+ * date: 2024/12/19
  */
 
 @Slf4j
@@ -63,22 +45,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     /**
      * 用户注册
      *
-     * 业务流程：
-     * 1. 参数校验（Controller层的@Valid已完成基础校验）
-     * 2. 业务唯一性校验（用户名、邮箱不能重复）
-     * 3. 密码加密（使用BCrypt，每次结果都不同）
-     * 4. 数据保存（设置默认值，记录创建时间）
-     * 5. 返回用户信息（不包含密码等敏感信息）
-     *
-     * 安全考虑：
-     * - 密码明文立即加密，不在内存中长时间保留
-     * - 返回的用户信息不包含密码字段
-     * - 使用事务确保数据一致性
-     *
-     * 异常处理：
-     * - 用户名重复：抛出USERNAME_ALREADY_EXISTS异常
-     * - 邮箱重复：抛出EMAIL_ALREADY_EXISTS异常
-     * - 数据库异常：由全局异常处理器处理
+     * @param request 注册请求
+     * @return 用户资料
      */
     @Override
     @Transactional
@@ -120,26 +88,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     /**
      * 用户登录
      *
-     * 认证流程：
-     * 1. 使用Spring Security的AuthenticationManager进行认证
-     * 2. 认证成功后生成JWT令牌
-     * 3. 查询用户完整信息
-     * 4. 构建登录响应（包含令牌和用户信息）
-     *
-     * 技术细节：
-     * - 支持用户名或邮箱登录（在CustomUserDetailsService中实现）
-     * - 密码验证由Spring Security自动完成
-     * - JWT令牌包含用户名和过期时间
-     * - 返回Bearer类型令牌，符合OAuth2标准
-     *
-     * 安全特性：
-     * - 认证失败会抛出BadCredentialsException
-     * - 密码验证使用BCrypt，防止时序攻击
-     * - JWT签名防止令牌被篡改
-     *
-     * 异常处理：
-     * - 认证失败：由全局异常处理器捕获并返回统一错误
-     * - 用户不存在：在UserDetailsService中处理
+     * @param request 登录请求
+     * @return 登录响应
      */
     @Override
     public UserLoginResponse login(UserLoginRequest request) {
@@ -209,7 +159,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         User user = findByUsername(userDetails.getUsername());
-        
+
         if (user == null) {
             throw new ClientException(ErrorCode.USER_NOT_FOUND);
         }
