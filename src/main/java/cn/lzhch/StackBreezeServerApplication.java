@@ -19,7 +19,6 @@ public class StackBreezeServerApplication {
                         Application '{}' is running! Access URLs:
                         \t\
                         Local: \t\thttp://localhost:{}
-                        
                         ----------------------------------------------------------""",
                 env.getProperty("spring.application.name"),
                 CharSequenceUtil.isBlank(env.getProperty("server.port")) ? "8080" : env.getProperty("server.port"));

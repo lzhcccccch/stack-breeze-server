@@ -130,7 +130,7 @@ public class SecurityConfig {
                         // 公开的认证端点 - 注册和登录不需要认证
                         .requestMatchers("/api/auth/register", "/api/auth/login").permitAll()
                         // 其他公开端点 - 根据业务需要调整
-                        .requestMatchers("/dailyLifeRecords/**").permitAll()
+                        .requestMatchers("/api/**").permitAll()
                         // 所有其他请求需要JWT认证
                         .anyRequest().authenticated()
                 )
