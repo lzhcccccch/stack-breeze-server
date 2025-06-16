@@ -1,4 +1,4 @@
-package cn.lzhch.config;
+package cn.lzhch.common.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

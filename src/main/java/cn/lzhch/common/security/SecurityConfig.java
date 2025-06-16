@@ -1,7 +1,5 @@
-package cn.lzhch.config;
+package cn.lzhch.common.security;
 
-import cn.lzhch.security.CustomUserDetailsService;
-import cn.lzhch.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

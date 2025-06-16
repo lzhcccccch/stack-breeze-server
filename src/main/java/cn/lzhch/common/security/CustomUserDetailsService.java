@@ -1,4 +1,4 @@
-package cn.lzhch.security;
+package cn.lzhch.common.security;
 
 import cn.lzhch.entity.User;
 import cn.lzhch.mapper.UserMapper;

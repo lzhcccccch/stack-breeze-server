@@ -1,4 +1,4 @@
-package cn.lzhch.security;
+package cn.lzhch.common.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

@@ -1,4 +1,4 @@
-package cn.lzhch.security;
+package cn.lzhch.common.security;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;

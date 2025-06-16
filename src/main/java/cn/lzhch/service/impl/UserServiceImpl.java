@@ -8,7 +8,7 @@ import cn.lzhch.dto.auth.UserProfileResponse;
 import cn.lzhch.dto.auth.UserRegisterRequest;
 import cn.lzhch.entity.User;
 import cn.lzhch.mapper.UserMapper;
-import cn.lzhch.security.JwtTokenProvider;
+import cn.lzhch.common.security.JwtTokenProvider;
 import cn.lzhch.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.RequiredArgsConstructor;
