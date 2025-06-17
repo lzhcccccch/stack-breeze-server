@@ -2,7 +2,11 @@ package cn.lzhch.entity;
 
 
 import cn.lzhch.common.dto.BaseEntity;
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serial;
@@ -28,6 +32,7 @@ public class NavigationWebsite extends BaseEntity {
     /**
      * 主键 ID
      */
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
     /**
@@ -58,6 +63,7 @@ public class NavigationWebsite extends BaseEntity {
     /**
      * 类别 id
      */
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long categoryId;
 
 }

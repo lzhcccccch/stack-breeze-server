@@ -2,6 +2,7 @@ package cn.lzhch.dto.navigation;
 
 import cn.lzhch.common.dto.BaseEntity;
 import cn.lzhch.entity.NavigationWebsite;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,13 +25,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class CategoryWebsiteListResDto extends BaseEntity {
+public class WebsitesByCategoryResDto extends BaseEntity {
     @Serial
     private static final long serialVersionUID = 4109527031183934244L;
 
     /**
      * 主键 ID
      */
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
     /**
