@@ -64,4 +64,12 @@ public class NavigationCategoryController {
         return ResultHelper.success(this.navigationCategoryService.list());
     }
 
+    /**
+     * 获取导航类别和对应的网站列表
+     */
+    @GetMapping(value = "/listWithWebsites")
+    public Result<?> listWithWebsites() {
+        return ResultHelper.success(this.navigationCategoryService.listWithWebsites());
+    }
+
 }
